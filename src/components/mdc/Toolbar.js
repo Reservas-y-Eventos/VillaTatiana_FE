@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from '@rmwc/theme';
 import {
-    TopAppBar, TopAppBarActionItem, TopAppBarFixedAdjust, TopAppBarRow, TopAppBarSection
+    TopAppBar, TopAppBarActionItem, TopAppBarFixedAdjust, TopAppBarRow, TopAppBarSection, TopAppBarTitle
 } from '@rmwc/top-app-bar';
-import { Button } from '@rmwc/button';
 import { useTranslation } from 'react-i18next';
 import DrawerContext from './drawer/DrawerContext';
 import MDIcon from './MDIcon';
@@ -44,16 +43,14 @@ const Toolbar = ({ useCustomTheme = true }) => {
             {renderToolbar(
                 <TopAppBarRow>
                     <TopAppBarSection alignStart>
-                        <TopAppBarActionItem>
+                        <TopAppBarActionItem icon={''} onClick={() => setDrawerOpen(true)}>
                             <MDIcon icon={'menu'} />
                         </TopAppBarActionItem>
+                        <Link to={'/'}>
+                            <TopAppBarTitle>Villa Tatiana</TopAppBarTitle>
+                        </Link>
                     </TopAppBarSection>
                     <TopAppBarSection alignEnd>
-                        <Button
-                            label={t('home')} className={'full-height'}
-                            tag={'a'} href={'/#solutions'} />
-                        <Button label={'ESP | ENG'} className={'full-height'}
-                            onClick={() => changeLanguage(i18n.language === 'es' ? 'en' : 'es')} />
                     </TopAppBarSection>
                 </TopAppBarRow>
             )}
