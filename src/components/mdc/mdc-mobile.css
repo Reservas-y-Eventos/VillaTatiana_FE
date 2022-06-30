@@ -1,0 +1,22 @@
+@media (max-width: 800px) {
+    :root {
+        --toolbar-height: 64px;
+        --toolbar-side-margin: .6rem;
+    }
+
+    .mdc-top-app-bar__section.mdc-top-app-bar__section--align-end {
+        display: none;
+    }
+
+    .block-mobile {
+        display: block;
+    }
+
+    .flex-mobile {
+        display: flex;
+    }
+
+    .hidden-mobile {
+        display: none;
+    }
+}
