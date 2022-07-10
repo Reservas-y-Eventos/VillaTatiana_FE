@@ -1,0 +1,23 @@
+{
+    "login": "LogIn",
+    "email": "Correo",
+    "password": "Contraseña",
+    "caption": "¿Necesitas una cuenta? ",
+    "register": " Registrate",
+    "calendar": "Calendario",
+    "booking": "Reservas",
+    "property": "Finca",
+    "salon": "Salon",
+    "rental": "Alquiler",
+    "objects": "Objetos",
+    "spaces": "Espacios",
+    "contact-us": "Contactenos",
+    "new-user": "Usuario",
+    "admin": "Administrador",
+    "name": "Nombre",
+    "last-name": "Apellido",
+    "phone": "Telefono",
+    "user": "Usuario",
+    "not-found": "Opss! Algo ha salido mal",
+    "not-found-label": "La página que buscas no existe"
+}
