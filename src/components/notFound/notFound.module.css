@@ -1,0 +1,13 @@
+.notFound_container {
+    height: 100%;
+    min-height: 85vh;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.notFoundBg_picture {
+    max-width: 500px;
+}
