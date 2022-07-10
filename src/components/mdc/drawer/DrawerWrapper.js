@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Drawer, DrawerContent, DrawerHeader } from '@rmwc/drawer';
 import {
     List,
@@ -13,61 +13,61 @@ import { IconButton } from '@rmwc/icon-button';
 import DrawerContext from './DrawerContext';
 import MDIcon from '../MDIcon';
 import Divider from '../Divider';
-import { Button } from '@rmwc/button';
 import { useTranslation } from 'react-i18next';
 
 const Navigation = () => {
+    const { t } = useTranslation();
     const domains = localStorage.getItem('route')
         ? localStorage.getItem('route').split(',')
         : [];
     const list = [
         {
-            link: '/',
-            name: 'Calendar',
+            link: '/calendar',
+            name: t('calendar'),
             icon: 'calendar-check',
             route: '',
         },
         {
-            text: 'Booking',
+            text: t('booking'),
             icon: 'book-check',
             collapsibleList: true,
             items: [
                 {
-                    link: '',
-                    name: 'Property',
+                    link: '/property',
+                    name: t('property'),
                     icon: 'home',
                     route: 'task',
                 },
                 {
-                    link: '',
-                    name: 'Salon',
+                    link: '/salon',
+                    name: t('salon'),
                     icon: 'sofa',
                     route: '',
                 },
             ],
         },
         {
-            text: 'Rental',
+            text: t('rental'),
             icon: 'alpha-r-box',
             collapsibleList: true,
             items: [
                 {
-                    link: '',
-                    name: 'Objects',
+                    link: '/objects',
+                    name: t('objects'),
                     icon: 'soccer',
                     route: '',
                 },
                 {
-                    link: '',
-                    name: 'Spaces',
+                    link: '/spaces',
+                    name: t('spaces'),
                     icon: 'soccer-field',
                     route: '',
                 },
             ],
         },
         {
-            link: '/bot',
-            name: 'Contact Us',
+            link: '/contact-us',
+            name: t('contact-us'),
             icon: 'face-agent',
             route: 'Contact Us',
         },
@@ -124,7 +124,6 @@ const Navigation = () => {
             }
         });
     };
-
     return (<DrawerContent>
         <List avatarList vertical={'true'}>
             {renderItems()}

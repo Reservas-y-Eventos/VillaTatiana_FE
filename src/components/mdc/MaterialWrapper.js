@@ -45,10 +45,10 @@ const MaterialWrapper = ({ children }) => (
       prefix: 'mdi-',
     }}>
     <ThemeProvider options={{
-      primary: '#0069ff',
-      primaryBg: '#0069ff',
-      secondary: '#64dc17',
-      secondaryBg: '#64dc17',
+      primary: '#2376d9',
+      primaryBg: '#2376d9',
+      secondary: '#c8e6f3',
+      secondaryBg: '#c8e6f3',
       error: '#d43551',
       background: '#fafafa',
       onSecondary: '#002a66',
