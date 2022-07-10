@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Button } from '@rmwc/button';
+import { Typography } from "@rmwc/typography";
 import { ThemeProvider } from '@rmwc/theme';
 import {
     TopAppBar, TopAppBarActionItem, TopAppBarFixedAdjust, TopAppBarRow, TopAppBarSection, TopAppBarTitle
@@ -8,13 +10,17 @@ import {
 import { useTranslation } from 'react-i18next';
 import DrawerContext from './drawer/DrawerContext';
 import MDIcon from './MDIcon';
+import styles from './toolbar.module.css'
 
 const ToolbarTheme = {
-    primary: '#4d4d4d',
-    primaryBg: '#fff',
+    primary: '#2376d9',
+    primaryBg: '#2376d9',
+    secondary: '#c8e6f3',
+    secondaryBg: '#c8e6f3',
     error: '#d43551',
-    background: '#fff',
-    onPrimary: '#4d4d4d',
+    background: '#fafafa',
+    onPrimary: '#2376d9',
+    onSecondary: '#002a66',
 };
 
 const Toolbar = ({ useCustomTheme = true }) => {
@@ -43,14 +49,24 @@ const Toolbar = ({ useCustomTheme = true }) => {
             {renderToolbar(
                 <TopAppBarRow>
                     <TopAppBarSection alignStart>
-                        <TopAppBarActionItem icon={''} onClick={() => setDrawerOpen(true)}>
+                        <TopAppBarActionItem onClick={() => setDrawerOpen(true)}>
                             <MDIcon icon={'menu'} />
                         </TopAppBarActionItem>
                         <Link to={'/'}>
-                            <TopAppBarTitle>Villa Tatiana</TopAppBarTitle>
+                            <TopAppBarTitle>
+                                <Typography className={styles.banner}>
+                                    Villa Tatiana
+                                </Typography>
+                            </TopAppBarTitle>
                         </Link>
                     </TopAppBarSection>
                     <TopAppBarSection alignEnd>
+                        <Button label={'ESP | ENG'} onClick={() => changeLanguage(i18n.language === 'es' ? 'en' : 'es')} />
+                        <Link to={'/login'}>
+                            <Button outlined label={t('login')} >
+                                <MDIcon icon={'login'} size={16} />
+                            </Button>
+                        </Link>
                     </TopAppBarSection>
                 </TopAppBarRow>
             )}
