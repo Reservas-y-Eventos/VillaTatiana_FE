@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const MDIcon = ({ icon, size = 24, className = '', title = '', style = {} }) => (
+const MDIcon = ({ icon, size = 24, className = "", title = "", style = {} }) => (
     <span className={`mdi mdi-${size}px mdi-${icon} ${className}`} title={title} style={style} />);
 
 MDIcon.propTypes = {

@@ -2,7 +2,9 @@ import React from "react";
 
 const Rental = () => {
     return (
-        <h1>Rental</h1>
+        <>
+            <h1>Rental</h1>
+        </>
     )
 }
 

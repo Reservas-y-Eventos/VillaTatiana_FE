@@ -1,6 +1,6 @@
-import React, { useReducer } from 'react';
-import PropTypes from 'prop-types';
-import DrawerContext from './DrawerContext';
+import React, { useReducer } from "react";
+import PropTypes from "prop-types";
+import DrawerContext from "./DrawerContext";
 
 const openDrawerReducer = (data, action) => {
     return action;

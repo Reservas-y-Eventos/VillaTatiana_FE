@@ -11,7 +11,7 @@
     "rental": "Alquiler",
     "objects": "Objetos",
     "spaces": "Espacios",
-    "contact-us": "Contactenos",
+    "contact-us": "Contáctenos",
     "new-user": "Usuario",
     "admin": "Administrador",
     "name": "Nombre",
@@ -19,5 +19,7 @@
     "phone": "Telefono",
     "user": "Usuario",
     "not-found": "Opss! Algo ha salido mal",
-    "not-found-label": "La página que buscas no existe"
+    "not-found-label": "La página que buscas no existe",
+    "success-login": "Login exitoso",
+    "who": "¿Quienes somos?"
 }
