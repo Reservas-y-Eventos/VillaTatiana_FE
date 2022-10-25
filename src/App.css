@@ -4,5 +4,182 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  height: 100%;
+}
+
+.big-box {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+  color: #4a4a4a;
+  display: inline-block;
+  padding: 0.7rem;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 1000px;
+}
+
+.full-box {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+  color: #4a4a4a;
+  display: inline-block;
+  padding: 0.7rem;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 1500px;
+}
+
+.medium-box {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+  color: #4a4a4a;
+  display: inline-block;
+  padding: 2rem;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+
+.small-box {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+  color: #4a4a4a;
+  display: inline-block;
+  padding: 2rem;
+  margin: 25px;
+  width: 400px;
+  max-width: 400px;
+}
+
+.fa {
   color: black;
+}
+
+.buttonIcon {
+  color: white;
+}
+
+.big-centered {
+  margin-top: 100px;
+  display: flex;
+}
+
+.small-centered {
+  margin-top: 50px;
+}
+
+.icon-bar {
+  padding: 10px;
+  justify-content: left;
+  align-self: left;
+}
+
+.card-header-title {
+  align-items: center;
+  color: #363636;
+  font-weight: 700;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  margin-bottom: 0px !important;
+}
+
+.sub {
+  font-size: 1.50rem;
+  padding: 12px;
+  text-align: left;
+}
+
+.pharagraph {
+  font-size: 1.2rem;
+  font-weight: 600 !important;
+  padding: 12px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.field-form {
+  padding: 10px;
+  width: 300px;
+  max-width: 400px;
+}
+
+.field-radio {
+  padding: 10px;
+  width: 200px;
+  max-width: 100%;
+}
+
+.text-pharagraph {
+  padding-top: 30px;
+  margin-left: 30px;
+  text-align: left;
+}
+
+.help {
+  display: block;
+  font-size: .75rem;
+  margin-top: .25rem;
+  text-align: left;
+}
+
+.help.is-danger {
+  color: #ff3860;
+}
+
+.button-from.edit {
+  background: #ffdb4a;
+}
+
+.subtitle-card {
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.bottom-marked {
+  border-bottom: .25rem solid var(--mdc-theme-primary);
+  background-color: rgba(0, 0, 100, .03);
+}
+
+.centered {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background: #005792;
+}
+
+.store-info {
+  color: grey;
+  align-items: center;
+  display: flex;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.store-number {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  color: grey;
 }

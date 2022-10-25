@@ -1,62 +1,151 @@
-import React, { useContext } from 'react';
-import { Drawer, DrawerContent, DrawerHeader } from '@rmwc/drawer';
-import { List, ListItem } from '@rmwc/list';
-import { IconButton } from '@rmwc/icon-button';
-import DrawerContext from './DrawerContext';
-import MDIcon from '../MDIcon';
-import Divider from '../Divider';
-import { Button } from '@rmwc/button';
-import ScrollingLink from './ScrollingLink';
-import { useTranslation } from 'react-i18next';
+import React, { useContext } from "react";
+import { Drawer, DrawerContent, DrawerHeader } from "@rmwc/drawer";
+import {
+    List,
+    ListItem,
+    ListItemGraphic,
+    ListItemText,
+    CollapsibleList,
+    SimpleListItem
+} from "@rmwc/list";
+import { Link } from "react-router-dom";
+import { IconButton } from "@rmwc/icon-button";
+import DrawerContext from "./DrawerContext";
+import MDIcon from "../MDIcon";
+import Divider from "../Divider";
+import { useTranslation } from "react-i18next";
+
+const Navigation = () => {
+    const { t } = useTranslation();
+    const domains = localStorage.getItem("route")
+        ? localStorage.getItem("route").split(",")
+        : [];
+    const list = [
+        {
+            link: "/calendar",
+            name: t("calendar"),
+            icon: "calendar-check",
+            route: "",
+        },
+        {
+            text: t("booking"),
+            icon: "book-check",
+            collapsibleList: true,
+            items: [
+                {
+                    link: "/property",
+                    name: t("property"),
+                    icon: "home",
+                    route: "task",
+                },
+                {
+                    link: "/salon",
+                    name: t("salon"),
+                    icon: "sofa",
+                    route: "",
+                },
+            ],
+        },
+        {
+            text: t("rental"),
+            icon: "alpha-r-box",
+            collapsibleList: true,
+            items: [
+                {
+                    link: "/objects",
+                    name: t("objects"),
+                    icon: "soccer",
+                    route: "",
+                },
+                {
+                    link: "/spaces",
+                    name: t("spaces"),
+                    icon: "soccer-field",
+                    route: "",
+                },
+            ],
+        },
+        {
+            link: "/contact-us",
+            name: t("contact-us"),
+            icon: "face-agent",
+            route: "Contact Us",
+        },
+    ];
+
+    const searchRoutes = (props) =>
+        domains.filter(
+            (team) => team.toLowerCase() === props.toLowerCase()
+        );
+
+    const renderItems = (items = list) => {
+        return items.map((it) => {
+            if (it.collapsibleList) {
+                const data = renderItems(it.items);
+                if (data[0]) {
+                    return (
+                        <CollapsibleList
+                            handle={
+                                <SimpleListItem
+                                    text={it.text}
+                                    graphic={it.icon}
+                                    metaIcon={"chevron-right"}
+                                />
+                            }
+                        >
+                            {data}
+                        </CollapsibleList>
+                    );
+                }
+                return "";
+            } else {
+                if (searchRoutes(it.route).length > 0 || domains[0] === "*") {
+                    return (
+                        <Link to={it.link}>
+                            <ListItem>
+                                <ListItemGraphic>
+                                    <MDIcon icon={it.icon} />
+                                </ListItemGraphic>
+                                <ListItemText>{it.name}</ListItemText>
+                            </ListItem>
+                        </Link>
+                    );
+                }
+                return (
+                    <Link to={it.link}>
+                        <ListItem>
+                            <ListItemGraphic>
+                                <MDIcon icon={it.icon} />
+                            </ListItemGraphic>
+                            <ListItemText>{it.name}</ListItemText>
+                        </ListItem>
+                    </Link>
+                );;
+            }
+        });
+    };
+    return (<DrawerContent>
+        <List avatarList vertical={"true"}>
+            {renderItems()}
+        </List>
+    </DrawerContent>);;
+};
 
 const DrawerWrapper = () => {
-    const { t, i18n } = useTranslation();
     const { drawerOpen, setDrawerOpen } = useContext(DrawerContext);
-    const closeDrawer = () => setDrawerOpen(false);
-
-    const changeLanguage = (code) => {
-        if (i18n) i18n.changeLanguage(code);
-    };
-
     return (
-        <Drawer modal open={drawerOpen} onClose={closeDrawer}>
-            <DrawerHeader style={{ paddingLeft: '.4rem' }}>
-                <IconButton onClick={closeDrawer} style={{ marginTop: '.4rem' }}>
-                    <MDIcon icon={'close'} />
+        <Drawer modal open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+            <DrawerHeader style={{ paddingLeft: ".4rem" }}>
+                <IconButton
+                    onClick={() => setDrawerOpen(false)}
+                    style={{ marginTop: ".8rem" }}
+                >
+                    <MDIcon icon={"close"} />
                 </IconButton>
             </DrawerHeader>
             <Divider />
             <DrawerContent>
-                <List>
-                    <ScrollingLink to={'/#'}>
-                        <ListItem>{t('main')}</ListItem>
-                    </ScrollingLink>
-                    <ScrollingLink to={'#solutions'}>
-                        <ListItem>{t('solutions')}</ListItem>
-                    </ScrollingLink>
-                    <ScrollingLink to={'#benefits'}>
-                        <ListItem>{t('benefits')}</ListItem>
-                    </ScrollingLink>
-                    <ScrollingLink to={'#model'}>
-                        <ListItem>{t('model')}</ListItem>
-                    </ScrollingLink>
-                    <ScrollingLink to={'#about'}>
-                        <ListItem>{t('about')}</ListItem>
-                    </ScrollingLink>
-                    <ListItem className={'drawer-item-no-ripple'} style={{ marginTop: '.8rem' }}>
-                        <Button label={t('contact')} className={'primary rounded'} raised
-                            style={{ margin: '.2rem 0rem' }}
-                            tag={'a'} href={'/#contact'} />
-                    </ListItem>
-                    <ListItem className={'drawer-item-no-ripple'}>
-                        <Button label={t('clients-access')} className={'secondary rounded'} raised
-                            style={{ margin: '.2rem 0rem' }} />
-                    </ListItem>
-                    <ListItem>
-                        <Button label={'ESP | ENG'}
-                            onClick={() => changeLanguage(i18n.language === 'es' ? 'en' : 'es')} />
-                    </ListItem>
-                </List>
+                <Navigation />
             </DrawerContent>
         </Drawer>
     );

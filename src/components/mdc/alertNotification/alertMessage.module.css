@@ -1,0 +1,27 @@
+.notifications {
+    padding: 16px;
+    display: scroll;
+    position: fixed;
+    bottom: 16px;
+    right: -500px;
+}
+
+.notifications.show {
+    background-color: blue;
+    color: white;
+    right: 16px;
+    z-index: 999;
+    transition: right 0.5s ease;
+}
+
+.notifications.show.error {
+    background-color: #ff3860;
+}
+
+.notifications.show.success {
+    background-color: #23d160;
+}
+
+.notifications.show.warning {
+    background-color: #e2c700;
+}

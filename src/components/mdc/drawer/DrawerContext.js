@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react";
 
-const DrawerContext = React.createContext('drawer');
+const DrawerContext = React.createContext("drawer");
 
 export default DrawerContext;

@@ -1,0 +1,39 @@
+.toolbar_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.banner {
+    color: #2EBEC6;
+}
+
+.logo {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.end_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile_container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.user_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.esp_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
