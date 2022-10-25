@@ -15,6 +15,7 @@ const AlertMessage = () => {
                 dispatchData();
             }, 5000));
         }
+        // eslint-disable-next-line
     }, [data]);
 
     return (

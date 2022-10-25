@@ -4,7 +4,6 @@ import { Card } from "@rmwc/card";
 import { Elevation } from "@rmwc/elevation";
 import { Grid, GridCell, GridRow } from "@rmwc/grid";
 import { TextField } from "@rmwc/textfield";
-import { Typography } from "@rmwc/typography";
 import { useTranslation } from "react-i18next";
 import LoginApi from "../../api/LoginApi";
 import AlertMessageContext from "../../contexts/alert-message-context";
