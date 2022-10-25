@@ -34,7 +34,6 @@ const Toolbar = ({ useCustomTheme = true }) => {
     const [open, setOpen] = useState(false)
 
     const changeLanguage = (code) => {
-        console.log(code)
         if (i18n) i18n.changeLanguage(code);
     };
 
@@ -81,7 +80,7 @@ const Toolbar = ({ useCustomTheme = true }) => {
                         <Link to={"/"}>
                             <TopAppBarTitle>
                                 <div className={styles.toolbar_container}>
-                                    <img src={logo} className={styles.logo} />
+                                    <img src={logo} className={styles.logo} alt={"Logo"} />
                                     <Typography className={styles.banner}>
                                         &nbsp;Villa Tatiana
                                     </Typography>
@@ -93,15 +92,15 @@ const Toolbar = ({ useCustomTheme = true }) => {
                         <div className={styles.end_container}>
                             <Button onClick={() => changeLanguage("es")}>
                                 <div className={styles.esp_container}>
-                                    <img src={usa} />&nbsp;&nbsp;ESP
+                                    <img src={usa} alt={"ENG"} />&nbsp;&nbsp;ESP
                                 </div>
                             </Button>
                             <Typography use="subtitle2" className={styles.banner}>
                                 |
                             </Typography>
-                            <Button onClick={() => changeLanguage("en")} style={{'marginRight': '10px'}} >
+                            <Button onClick={() => changeLanguage("en")} style={{ 'marginRight': '10px' }} >
                                 <div className={styles.esp_container}>
-                                    ENG&nbsp;<img src={spain} />
+                                    ENG&nbsp;<img src={spain} alt={"SPA"} />
                                 </div>
                             </Button>
                             {show

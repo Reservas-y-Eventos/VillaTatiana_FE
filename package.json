@@ -2,6 +2,10 @@
   "name": "villatatiana-front",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.18.2",
+    "npm": "6.14.15"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
