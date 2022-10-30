@@ -7,6 +7,7 @@ import Calendar from "../components/calendar/Calendar";
 import Property from "../components/booking/Booking";
 import Rental from "../components/rental/Rental";
 import ContactUs from "../components/contactUs/ContactUs";
+import CalendarDataHolder from "../data/calendar-data";
 // import NotFound from "../components/notFound/NotFound";
 
 const RoutesAdmin = () => {
@@ -23,7 +24,9 @@ const RoutesAdmin = () => {
                     <Register />
                 </Route>
                 <Route exact path={"/calendar"}>
-                    <Calendar />
+                    <CalendarDataHolder>
+                        <Calendar />
+                    </CalendarDataHolder>
                 </Route>
                 <Route exact path={"/property"}>
                     <Property />

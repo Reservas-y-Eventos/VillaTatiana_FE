@@ -16,7 +16,6 @@ import "@rmwc/icon-button/styles";
 import "@rmwc/textfield/styles";
 import "@rmwc/fab/styles";
 import "@rmwc/data-table/styles";
-import "@mdi/font/css/materialdesignicons.min.css";
 import "@rmwc/select/styles";
 import "@rmwc/formfield/styles";
 import "@rmwc/grid/styles";
@@ -34,6 +33,7 @@ import "@rmwc/card/styles";
 import "@rmwc/linear-progress/styles";
 import "@rmwc/chip/styles";
 import "@rmwc/tabs/styles";
+import "@mdi/font/css/materialdesignicons.min.css";
 import "./mdc.css";
 import "./mdc-mobile.css";
 
