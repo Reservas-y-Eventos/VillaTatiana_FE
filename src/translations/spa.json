@@ -14,6 +14,7 @@
     "contact-us": "Contáctenos",
     "new-user": "Usuario",
     "admin": "Administrador",
+    "fullName": "Nombre",
     "name": "Nombre",
     "last-name": "Apellido",
     "phone": "Telefono",
@@ -21,5 +22,16 @@
     "not-found": "Opss! Algo ha salido mal",
     "not-found-label": "La página que buscas no existe",
     "success-login": "Login exitoso",
-    "who": "¿Quienes somos?"
+    "who": "¿Quienes somos?",
+    "date": "Fecha",
+    "service": "Servicio",
+    "typeService": "Tipo de Servicio",
+    "book": "Reservar",
+    "confirmBooking": "Confirmar Reserva",
+    "price": "Precio",
+    "state": "Estado",
+    "description": "Descripcion",
+    "confirm": "Confimar",
+    "cancel": "Cancelar",
+    "success-booking": "Resevacion exitosa"
 }
