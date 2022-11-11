@@ -1,10 +1,11 @@
 import React from "react";
 import { Grid, GridCell, GridRow } from "@rmwc/grid";
 import { Typography } from "@rmwc/typography";
-import MDIcon from "../mdc/MDIcon";
-import { useTranslation } from "react-i18next";
 import { Card } from "@rmwc/card";
 import { Elevation } from "@rmwc/elevation";
+import MDIcon from "../mdc/MDIcon";
+import { useTranslation } from "react-i18next";
+import map from "../../res/images/maps.PNG"
 import styles from "./contactus.module.css"
 
 const ContactUs = () => {
@@ -19,9 +20,8 @@ const ContactUs = () => {
                 <Card>
                     <Grid style={{ margin: "0px" }}>
                         <GridRow>
-                            <GridCell desktop={12} tablet={12} phone={12}>
-                                <iframe loading="lazy" allowfullscreen
-                                    src="https://www.google.com/maps/embed/v1/place?q=place_id:EkFHYWNoYW5jaXDDoSAtIENob2NvbnTDoSAjNS01LCBHYWNoYW5jaXDDoSwgQ3VuZGluYW1hcmNhLCBDb2xvbWJpYSIwEi4KFAoSCQU4yDjvckCOEUottNVNo9t7EAUqFAoSCS2IknUHF0COETA81GnTw0V4&key=..."></iframe>
+                            <GridCell desktop={12} tablet={12} phone={12} className={styles.map_container}>
+                                <img src={map} className={styles.map_img} />
                             </GridCell>
                             <GridCell desktop={8} tablet={12} phone={12}>
                                 <GridRow>

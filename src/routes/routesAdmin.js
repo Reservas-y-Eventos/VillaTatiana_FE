@@ -3,12 +3,10 @@ import { Route } from "react-router-dom";
 import Home from "../components/home/home";
 import LogIn from "../components/login/Login";
 import Register from "../components/register/Register";
-import Calendar from "../components/calendar/Calendar";
+import MyEvents from "../components/calendar/MyEvents";
 import Property from "../components/booking/Booking";
 import Rental from "../components/rental/Rental";
 import ContactUs from "../components/contactUs/ContactUs";
-import CalendarDataHolder from "../data/calendar-data";
-// import NotFound from "../components/notFound/NotFound";
 
 const RoutesAdmin = () => {
     const renderRoutes = () => {
@@ -24,20 +22,12 @@ const RoutesAdmin = () => {
                     <Register />
                 </Route>
                 <Route exact path={"/calendar"}>
-                    <CalendarDataHolder>
-                        <Calendar />
-                    </CalendarDataHolder>
+                    <MyEvents />
                 </Route>
-                <Route exact path={"/property"}>
+                <Route exact path={"/booking"}>
                     <Property />
                 </Route>
-                <Route exact path={"/salon"}>
-                    <Property />
-                </Route>
-                <Route exact path={"/objects"}>
-                    <Rental />
-                </Route>
-                <Route exact path={"/spaces"}>
+                <Route exact path={"/rental"}>
                     <Rental />
                 </Route>
                 <Route exact path={"/contact-us"}>

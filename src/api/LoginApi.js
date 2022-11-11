@@ -3,6 +3,7 @@ export default class LoginApi {
 
     static signUp(data) {
         const registerData = {
+            dni: data.dni,
             name: data.firstName,
             lastName: data.lastName,
             phone: data.phoneNumber,

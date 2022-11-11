@@ -8,8 +8,8 @@
     "booking": "Reservas",
     "property": "Finca",
     "salon": "Salon",
-    "rental": "Alquiler",
-    "objects": "Objetos",
+    "rental": "Alquilar",
+    "object": "Objeto",
     "spaces": "Espacios",
     "contact-us": "Contáctenos",
     "new-user": "Usuario",
@@ -17,6 +17,7 @@
     "fullName": "Nombre",
     "name": "Nombre",
     "last-name": "Apellido",
+    "dni": "Dni",
     "phone": "Telefono",
     "user": "Usuario",
     "not-found": "Opss! Algo ha salido mal",
@@ -33,5 +34,9 @@
     "description": "Descripcion",
     "confirm": "Confimar",
     "cancel": "Cancelar",
-    "success-booking": "Resevacion exitosa"
+    "success-booking": "Resevacion exitosa",
+    "confirmRental": "Confirmar Alquiler",
+    "typeObject": "Tipo de Objeto",
+    "quantity": "Cantidad",
+    "delete": "Eliminar"
 }

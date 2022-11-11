@@ -28,42 +28,16 @@ const Navigation = () => {
             route: "",
         },
         {
-            text: t("booking"),
+            link: "/booking",
+            name: t("booking"),
             icon: "book-check",
-            collapsibleList: true,
-            items: [
-                {
-                    link: "/property",
-                    name: t("property"),
-                    icon: "home",
-                    route: "task",
-                },
-                {
-                    link: "/salon",
-                    name: t("salon"),
-                    icon: "sofa",
-                    route: "",
-                },
-            ],
+            route: "",
         },
         {
-            text: t("rental"),
+            link: "/rental",
+            name: t("rental"),
             icon: "alpha-r-box",
-            collapsibleList: true,
-            items: [
-                {
-                    link: "/objects",
-                    name: t("objects"),
-                    icon: "soccer",
-                    route: "",
-                },
-                {
-                    link: "/spaces",
-                    name: t("spaces"),
-                    icon: "soccer-field",
-                    route: "",
-                },
-            ],
+            route: "",
         },
         {
             link: "/contact-us",

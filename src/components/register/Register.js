@@ -15,6 +15,7 @@ const Register = () => {
     const { dispatchData: dispatchNotification } = useContext(AlertMessageContext);
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+    const [dni, setDni] = useState('')
     const [phoneNumber, setPhoneNumber] = useState(0)
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
@@ -22,6 +23,7 @@ const Register = () => {
 
     const register = () => {
         const data = {
+            dni,
             firstName,
             lastName,
             phoneNumber,
@@ -50,33 +52,31 @@ const Register = () => {
                                 <GridRow>
                                     <GridCell desktop={12} tablet={12} phone={12}>
                                         <GridRow>
-                                            <GridCell desktop={6} tablet={12} phone={12}>
+                                            <GridCell desktop={12} tablet={12} phone={12}>
                                                 <TextField icon={"format-letter-case-upper"} outlined label={t("name")}
                                                     onChange={(e) => setFirstName(e.target.value)} />
                                             </GridCell>
-                                            <GridCell desktop={6} tablet={12} phone={12}>
+                                            <GridCell desktop={12} tablet={12} phone={12}>
                                                 <TextField icon={"format-letter-case-lower"} outlined label={t("last-name")}
                                                     onChange={(e) => setLastName(e.target.value)} />
                                             </GridCell>
-                                        </GridRow>
-                                        <br />
-                                        <GridRow>
-                                            <GridCell desktop={6} tablet={12} phone={12}>
+                                            <GridCell desktop={12} tablet={12} phone={12}>
+                                                <TextField icon={"id-card"} outlined label={t("dni")}
+                                                    onChange={(e) => setDni(e.target.value)} />
+                                            </GridCell>
+                                            <GridCell desktop={12} tablet={12} phone={12}>
                                                 <TextField icon={"phone"} outlined label={t("phone")} type={"number"}
                                                     onChange={(e) => setPhoneNumber(e.target.value)} />
                                             </GridCell>
-                                            <GridCell desktop={6} tablet={12} phone={12}>
+                                            <GridCell desktop={12} tablet={12} phone={12}>
                                                 <TextField icon={"email"} outlined label={t("email")} type={"email"}
                                                     onChange={(e) => setEmail(e.target.value)} />
                                             </GridCell>
-                                        </GridRow>
-                                        <br />
-                                        <GridRow>
-                                            <GridCell desktop={6} tablet={12} phone={12}>
+                                            <GridCell desktop={12} tablet={12} phone={12}>
                                                 <TextField icon={"account-outline"} outlined label={t("user")}
                                                     onChange={(e) => setUsername(e.target.value)} />
                                             </GridCell>
-                                            <GridCell desktop={6} tablet={12} phone={12}>
+                                            <GridCell desktop={12} tablet={12} phone={12}>
                                                 <TextField icon={"form-textbox-password"} outlined label={t("password")}
                                                     type={"password"} onChange={(e) => setPassword(e.target.value)} />
                                             </GridCell>

@@ -9,7 +9,7 @@
     "property": "Property",
     "salon": "Salon",
     "rental": "Rental",
-    "objects": "Objects",
+    "object": "Object",
     "spaces": "Spaces",
     "contact-us": "Contact Us",
     "new-user": "New User",
@@ -17,6 +17,7 @@
     "fullName": "Full Name",
     "name": "First Name",
     "last-name": "Last Name",
+    "dni": "Dni",
     "phone": "Phone",
     "user": "User",
     "not-found": "Opss! Something went wrong",
@@ -33,5 +34,9 @@
     "description": "Description",
     "confirm": "Confim",
     "cancel": "Cancel",
-    "success-booking": "Successful booking"
+    "success-booking": "Successful booking",
+    "confirmRental": "Confirm Rental",
+    "typeObject": "Object Type",
+    "quantity": "Quantity",
+    "delete": "Delete"
 }
