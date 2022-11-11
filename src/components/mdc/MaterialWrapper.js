@@ -33,6 +33,7 @@ import "@rmwc/card/styles";
 import "@rmwc/linear-progress/styles";
 import "@rmwc/chip/styles";
 import "@rmwc/tabs/styles";
+import "@rmwc/grid-list/styles";
 import "@mdi/font/css/materialdesignicons.min.css";
 import "./mdc.css";
 import "./mdc-mobile.css";

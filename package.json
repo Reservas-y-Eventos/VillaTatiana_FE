@@ -36,6 +36,7 @@
     "@rmwc/fab": "^8.0.0",
     "@rmwc/formfield": "^8.0.0",
     "@rmwc/grid": "^8.0.0",
+    "@rmwc/grid-list": "^8.0.3",
     "@rmwc/icon": "^8.0.0",
     "@rmwc/icon-button": "^8.0.0",
     "@rmwc/linear-progress": "^8.0.0",

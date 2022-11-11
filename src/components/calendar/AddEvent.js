@@ -11,12 +11,11 @@ import AlertMessageContext from "../../contexts/alert-message-context";
 import ServicesApi from "../../api/ServicesApi";
 import styles from "./addEvent.module.css"
 
-const AddEvent = () => {
+const AddEvent = (props) => {
     const { t } = useTranslation();
-    const { atrr, meth } = useContext(CalendarContext)
-    const { open, dateSelected, serviceSelected } = atrr
-    const { setOpen, setServiceSelected } = meth
     const { dispatchData: dispatchNotification } = useContext(AlertMessageContext);
+    const [serviceSelected, setServiceSelected] = useState('')
+    const [modal, setModal] = useState(true)
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
@@ -68,18 +67,39 @@ const AddEvent = () => {
         }
     }, [typeSelected])
 
+    const toggle = () => {
+        setModal(!modal);
+        props.method();
+    };
+
+    const handleDateSelect = () => {
+        let calendarApi = props.data.data.view.calendar;
+        calendarApi.unselect();
+        calendarApi.addEvent({
+            id: Date.now(),
+            title: typeName,
+            description: typeName,
+            start: props.data.data.startStr,
+            end: props.data.data.endStr,
+            allDay: props.data.data.allDay
+        });
+        props.data.check = false;
+        setModal(!modal);
+    };
+
     const sendBooking = () => {
         const data = {
-            "date": dateSelected,
+            date: props.data.data.startStr,
             name,
             phone,
             email,
-            "service": serviceSelected
+            service: serviceSelected
         }
         ServicesApi.postBooking(data)
             .then(() => {
+                handleDateSelect()
                 setOpenConfirmation(false)
-                setOpen(false)
+                setModal(false)
                 dispatchNotification({ text: t("success-booking"), type: 'success' });
             })
             .catch((err) => dispatchNotification({ text: err, type: 'error' }))
@@ -87,14 +107,14 @@ const AddEvent = () => {
 
     return (
         <>
-            <Dialog open={open} onClose={() => setOpen(false)} >
+            <Dialog open={modal} onClose={() => setModal(false)} >
                 <DialogContent>
                     <Grid>
                         <GridCell desktop={12} tablet={12} phone={12}>
                             <GridRow>
                                 <GridCell desktop={12} tablet={12} phone={12}>
                                     <TextField icon={"calendar-month"} outlined
-                                        value={dateSelected} disabled />
+                                        value={props.data.data.startStr} disabled />
                                 </GridCell>
                                 <GridCell desktop={12} tablet={12} phone={12}>
                                     <TextField icon={"format-letter-case-upper"} outlined label={t("fullName")}
@@ -200,7 +220,7 @@ const AddEvent = () => {
                 </DialogContent>
             </Dialog>
         </>
-    )
-}
+    );
+};
 
-export default AddEvent
+export default AddEvent;

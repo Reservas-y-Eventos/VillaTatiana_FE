@@ -25,4 +25,10 @@ export default class ServicesApi {
             .then(getResponseData)
             .catch(escalateError)
     }
+
+    static getAllDates() {
+        return api.get("form/all")
+            .then(getResponseData)
+            .catch(escalateError)
+    }
 }

@@ -25,7 +25,9 @@ const LogIn = () => {
         }
         LoginApi.signIn(data)
             .then((res) => {
+                console.log(res);
                 localStorage.setItem('user', res.validation.name);
+                localStorage.setItem('dni', res.validation.dni);
                 localStorage.setItem('rol', res.validation.role);
                 localStorage.setItem('token', res.token);
                 dispatchNotification({ text: t("success-login"), type: 'success' });
