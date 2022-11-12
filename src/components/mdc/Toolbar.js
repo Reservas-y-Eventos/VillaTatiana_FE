@@ -55,6 +55,7 @@ const Toolbar = ({ useCustomTheme = true }) => {
             localStorage.removeItem('user');
             localStorage.removeItem('rol');
             localStorage.removeItem('token');
+            localStorage.removeItem('dni');
             setShow(false)
             window.location.href = '/login';
         } catch (e) { // an error

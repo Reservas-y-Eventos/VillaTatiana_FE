@@ -5,8 +5,6 @@ import {
     ListItem,
     ListItemGraphic,
     ListItemText,
-    CollapsibleList,
-    SimpleListItem
 } from "@rmwc/list";
 import { Link } from "react-router-dom";
 import { IconButton } from "@rmwc/icon-button";
@@ -17,9 +15,6 @@ import { useTranslation } from "react-i18next";
 
 const Navigation = () => {
     const { t } = useTranslation();
-    const domains = localStorage.getItem("route")
-        ? localStorage.getItem("route").split(",")
-        : [];
     const list = [
         {
             link: "/calendar",
@@ -47,44 +42,9 @@ const Navigation = () => {
         },
     ];
 
-    const searchRoutes = (props) =>
-        domains.filter(
-            (team) => team.toLowerCase() === props.toLowerCase()
-        );
-
-    const renderItems = (items = list) => {
-        return items.map((it) => {
-            if (it.collapsibleList) {
-                const data = renderItems(it.items);
-                if (data[0]) {
-                    return (
-                        <CollapsibleList
-                            handle={
-                                <SimpleListItem
-                                    text={it.text}
-                                    graphic={it.icon}
-                                    metaIcon={"chevron-right"}
-                                />
-                            }
-                        >
-                            {data}
-                        </CollapsibleList>
-                    );
-                }
-                return "";
-            } else {
-                if (searchRoutes(it.route).length > 0 || domains[0] === "*") {
-                    return (
-                        <Link to={it.link}>
-                            <ListItem>
-                                <ListItemGraphic>
-                                    <MDIcon icon={it.icon} />
-                                </ListItemGraphic>
-                                <ListItemText>{it.name}</ListItemText>
-                            </ListItem>
-                        </Link>
-                    );
-                }
+    const renderItems = () => {
+        if (localStorage.getItem('token')) {
+            return list.map((it, i) => {
                 return (
                     <Link to={it.link}>
                         <ListItem>
@@ -94,10 +54,25 @@ const Navigation = () => {
                             <ListItemText>{it.name}</ListItemText>
                         </ListItem>
                     </Link>
-                );;
-            }
-        });
+                );
+            });
+        } else {
+            list.shift()
+            return list.map((it, i) => {
+                return (
+                    <Link to={it.link}>
+                        <ListItem>
+                            <ListItemGraphic>
+                                <MDIcon icon={it.icon} />
+                            </ListItemGraphic>
+                            <ListItemText>{it.name}</ListItemText>
+                        </ListItem>
+                    </Link>
+                );
+            });
+        }
     };
+
     return (<DrawerContent>
         <List avatarList vertical={"true"}>
             {renderItems()}
