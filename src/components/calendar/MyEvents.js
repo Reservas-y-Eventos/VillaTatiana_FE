@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { Grid, GridCell } from "@rmwc/grid";
 import FullCalendar from "./FullCalendar";
 import AddEvent from "./AddEvent";
-import ServicesApi from "../../api/ServicesApi";
 import "./calendar.css";
 
 const MyEvents = () => {
@@ -16,37 +15,6 @@ const MyEvents = () => {
         check: false,
         data: ""
     });
-
-
-    const events = [
-        {
-            id: '1',
-            title: '90 Minute Massage',
-            start: '2022-11-04',
-            resourceId: '1',
-            editable: true,
-            groupId: 'zzTop',
-            backgroundColor: '#ff0000',
-            borderColor: '#ff0000',
-        },
-        {
-            id: '2',
-            title: 'Haircut',
-            start: '2022-11-05',
-            resourceId: '2',
-            editable: true,
-        },
-        {
-            id: '3',
-            title: 'Pedicure',
-            start: '2022-11-06',
-            resourceId: '3',
-            editable: true,
-            groupId: 'zzTop',
-            backgroundColor: '#ff0000',
-            borderColor: '#ff0000',
-        },
-    ];
 
     const method = () => {
         setOpenModel({ check: false });
@@ -85,7 +53,6 @@ const MyEvents = () => {
                         select={handleDateSelect}
                         eventClick={handleEventClick}
                         eventsSet={handleEvents}
-                        // events={events}
                     />
                 </div>
             </GridCell>

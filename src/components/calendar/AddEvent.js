@@ -6,7 +6,6 @@ import { Button } from "@rmwc/button";
 import { Select } from "@rmwc/select";
 import { Typography } from "@rmwc/typography";
 import { useTranslation } from "react-i18next";
-import CalendarContext from "../../contexts/calendar-context";
 import AlertMessageContext from "../../contexts/alert-message-context";
 import ServicesApi from "../../api/ServicesApi";
 import styles from "./addEvent.module.css"
@@ -30,9 +29,9 @@ const AddEvent = (props) => {
     const [openConfirmation, setOpenConfirmation] = useState(false)
 
     const serviceOptions = [
-        { label: 'Finca', value: 'finca' },
-        { label: 'Habitaciones', value: 'habitacion' },
-        { label: 'Salon de Eventos', value: 'salon' }
+        { label: 'Finca', value: 'Finca' },
+        { label: 'Habitaciones', value: 'Habitacion' },
+        { label: 'Salon de Eventos', value: 'Salon' }
     ];
 
     useEffect(() => {
@@ -47,6 +46,7 @@ const AddEvent = (props) => {
                 })
                 .catch((err) => {
                     setSecondSelect(false);
+                    dispatchNotification({ text: err, type: 'error' })
                 })
         } else {
             setSecondSelect(false);
