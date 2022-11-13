@@ -38,5 +38,13 @@
     "confirmRental": "Confirm Rental",
     "typeObject": "Object Type",
     "quantity": "Quantity",
-    "delete": "Delete"
+    "delete": "Delete",
+    "errorLogin": "Incorrect email or password",
+    "time": "Time",
+    "brand": "Brand",
+    "itemName": "Name",
+    "add": "Add",
+    "addItem": "New Item",
+    "viewRents": "View Rents",
+    "update": "Update"
 }

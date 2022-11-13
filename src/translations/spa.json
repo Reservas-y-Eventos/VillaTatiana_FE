@@ -38,5 +38,13 @@
     "confirmRental": "Confirmar Alquiler",
     "typeObject": "Tipo de Objeto",
     "quantity": "Cantidad",
-    "delete": "Eliminar"
+    "delete": "Eliminar",
+    "errorLogin": "Correo o contraseña incorrectos",
+    "time": "Tiempo",
+    "brand": "Marca",
+    "itemName": "Nombre",
+    "add": "Agregar",
+    "addItem": "Nuevo Item",
+    "viewRents": "Ver Alquileres",
+    "update": "Actualizar"
 }

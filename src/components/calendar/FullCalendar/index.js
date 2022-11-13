@@ -37,6 +37,7 @@ const FSBFullCalendar = (props) => {
                 setLoaded(true)
             })
             .catch((err) => dispatchNotification({ text: err, type: 'error' }))
+        // eslint-disable-next-line
     }, [])
 
     return (

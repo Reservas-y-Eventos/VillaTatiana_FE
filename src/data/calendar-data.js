@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import CalendarContext from '../contexts/calendar-context';
 
 const CalendarDataHolder = ({ children }) => {
-    const [open, setOpen] = useState(false)
-    const [dateSelected, setDateSelected] = useState('')
-    const [serviceSelected, setServiceSelected] = useState('')
+    const [openAddEvent, setOpenAddEvent] = useState(false)
 
-    const atrr = { open, dateSelected, serviceSelected }
-    const meth = { setOpen, setDateSelected, setServiceSelected }
+    const atrr = { openAddEvent }
+    const meth = { setOpenAddEvent }
     return (
         <CalendarContext.Provider value={{ atrr, meth }}>
             {children}

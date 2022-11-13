@@ -51,6 +51,7 @@ const AddEvent = (props) => {
         } else {
             setSecondSelect(false);
         }
+        // eslint-disable-next-line
     }, [serviceSelected])
 
     useEffect(() => {
@@ -65,6 +66,7 @@ const AddEvent = (props) => {
                 })
                 .catch((err) => dispatchNotification({ text: err, type: 'error' }))
         }
+        // eslint-disable-next-line
     }, [typeSelected])
 
     const toggle = () => {

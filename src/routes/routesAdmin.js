@@ -7,6 +7,8 @@ import MyEvents from "../components/calendar/MyEvents";
 import Property from "../components/booking/Booking";
 import Rental from "../components/rental/Rental";
 import ContactUs from "../components/contactUs/ContactUs";
+import CalendarDataHolder from "../data/calendar-data";
+import RentalDataHolder from "../data/rental-data";
 
 const RoutesAdmin = () => {
     const renderRoutes = () => {
@@ -22,13 +24,17 @@ const RoutesAdmin = () => {
                     <Register />
                 </Route>
                 <Route exact path={"/calendar"}>
-                    <MyEvents />
+                    <CalendarDataHolder>
+                        <MyEvents />
+                    </CalendarDataHolder>
                 </Route>
                 <Route exact path={"/booking"}>
                     <Property />
                 </Route>
                 <Route exact path={"/rental"}>
-                    <Rental />
+                    <RentalDataHolder>
+                        <Rental />
+                    </RentalDataHolder>
                 </Route>
                 <Route exact path={"/contact-us"}>
                     <ContactUs />

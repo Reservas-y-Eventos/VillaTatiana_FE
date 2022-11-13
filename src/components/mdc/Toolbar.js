@@ -68,6 +68,7 @@ const Toolbar = ({ useCustomTheme = true }) => {
         } else {
             setShow(true)
         }
+        // eslint-disable-next-line
     }, [])
 
     return (
