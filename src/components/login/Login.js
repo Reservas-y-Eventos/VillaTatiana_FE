@@ -17,15 +17,17 @@ const LogIn = () => {
     const { dispatchData: dispatchNotification } = useContext(AlertMessageContext);
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [loading, setLoading] = useState(false);
 
     const logIn = () => {
+        setLoading(true)
         const data = {
             email,
             password
         }
         LoginApi.signIn(data)
             .then((res) => {
-                console.log(res);
+                setLoading(false)
                 localStorage.setItem('user', res.validation.name);
                 localStorage.setItem('dni', res.validation.dni);
                 localStorage.setItem('rol', res.validation.role);
@@ -33,8 +35,9 @@ const LogIn = () => {
                 dispatchNotification({ text: t("success-login"), type: 'success' });
                 window.location.href = '/';
             })
-            .catch((err) => {
-                dispatchNotification({ text: err, type: 'error' });
+            .catch(() => {
+                setLoading(false)
+                dispatchNotification({ text: t("errorLogin"), type: 'error' })
             })
     }
 
@@ -49,7 +52,7 @@ const LogIn = () => {
                                 <GridRow>
                                     <GridCell desktop={12} tablet={12} phone={12}>
                                         <TextField icon={"email"} outlined label={t("email")}
-                                            onChange={(e) => setEmail(e.target.value)} />
+                                            type={"email"} onChange={(e) => setEmail(e.target.value)} />
                                     </GridCell>
                                     <GridCell desktop={12} tablet={12} phone={12}>
                                         <TextField icon={"form-textbox-password"} outlined label={t("password")}
@@ -57,11 +60,17 @@ const LogIn = () => {
                                     </GridCell>
                                     <GridCell desktop={12} tablet={12} phone={12}>
                                         <GridCell span={12}>
-                                            <Button label={t("login")} raised className={"button-full"}
-                                                onClick={() => logIn()}>
-                                                <MDIcon icon={"login"} size={16}
-                                                    style={{ color: "white" }} />
-                                            </Button>
+                                            {loading
+                                                ? <Button raised className={"button-full"}
+                                                    onClick={() => logIn()}>
+                                                    <MDIcon icon={"spin mdi-loading"} style={{ color: "white" }} />
+                                                </Button>
+                                                : <Button label={t("login")} raised className={"button-full"}
+                                                    onClick={() => logIn()}>
+                                                    <MDIcon icon={"login"} size={16}
+                                                        style={{ color: "white" }} />
+                                                </Button>
+                                            }
                                         </GridCell>
                                     </GridCell>
                                     <GridCell desktop={12} tablet={12} phone={12}>

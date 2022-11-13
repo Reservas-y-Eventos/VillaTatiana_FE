@@ -5,6 +5,7 @@ import { TextField } from "@rmwc/textfield";
 import { Button } from "@rmwc/button";
 import { Typography } from "@rmwc/typography";
 import { useTranslation } from "react-i18next";
+import RentalContext from "../../contexts/rental-context";
 import AlertMessageContext from "../../contexts/alert-message-context";
 import RentalApi from "../../api/RentalApi";
 import styles from "./newRental.module.css"
@@ -13,6 +14,9 @@ const NewRental = (props) => {
     const { open, data } = props
     const { t } = useTranslation();
     const { dispatchData: dispatchNotification } = useContext(AlertMessageContext);
+    const { atrr, meth } = useContext(RentalContext)
+    const { openAddRental } = atrr
+    const { setOpenAddRental } = meth
     const [openConfirmation, setOpenConfirmation] = useState(false)
     const [quantity, setQuantity] = useState()
 
@@ -25,6 +29,7 @@ const NewRental = (props) => {
         RentalApi.rentItem(itemData)
             .then((res) => {
                 setOpenConfirmation(false)
+                setOpenAddRental(false)
                 dispatchNotification({ text: "Successful rent", type: 'success' })
             })
             .catch((err) => dispatchNotification({ text: err, type: 'error' }))
@@ -36,7 +41,7 @@ const NewRental = (props) => {
 
     return (
         <>
-            <Dialog open={open} onClose={!open} >
+            <Dialog open={openAddRental} onClose={() => setOpenAddRental(false)} >
                 <DialogContent>
                     <Grid>
                         <GridCell desktop={12} tablet={12} phone={12}>
