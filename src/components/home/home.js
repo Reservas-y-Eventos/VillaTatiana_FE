@@ -8,13 +8,13 @@ import Hero from "../../res/images/home.jpg"
 import styles from "./home.module.css"
 
 const Home = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <div className={styles.home_container}>
             <Card style={{ width: '50rem' }}>
                 <CardPrimaryAction>
-                    <img src={Hero} />
+                    <img src={Hero} alt={"Hero"} />
                     <div style={{ padding: '0 1rem 1rem 1rem' }}>
                         <br />
                         <Typography use="headline6" tag="h2">

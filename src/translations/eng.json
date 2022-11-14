@@ -46,5 +46,22 @@
     "add": "Add",
     "addItem": "New Item",
     "viewRents": "View Rents",
-    "update": "Update"
+    "update": "Update",
+    "errorGetDates": "Error, unable to get reservations",
+    "errorSendBooking": "Error, the selected date is not available",
+    "errorGetSite": "Error, unable to get sites",
+    "errorGetServices": "Error, unable to get services",
+    "errorDeletItem": "Error, unable to delete the item",
+    "errorGetItem": "Error, unable to get items",
+    "errorGetRentItem": "Error, unable to get rent items",
+    "errorRentItem": "Error, unable to rent item",
+    "errorAddItem": "Error, unable to add a new item",
+    "errorUpdateItem": "Error, unable to update item",
+    "successUpdateItem": "Successful item update",
+    "successRentItem": "Successful item rent",
+    "errorDeleteRentItem": "Error, unable to delete rent",
+    "successDeleteRentItem": "Successful rent delete",
+    "successAddItem": "Successful add item",
+    "successDeleteItem": "Successful delete item",
+    "confirmDetail": "Booking Detail"
 }

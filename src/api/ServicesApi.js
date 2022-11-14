@@ -31,4 +31,14 @@ export default class ServicesApi {
             .then(getResponseData)
             .catch(escalateError)
     }
+
+    static getReservationById(reservationId) {
+        return api.get("reservation", {
+            params: {
+                reservationId: reservationId
+            }
+        })
+            .then(getResponseData)
+            .catch(escalateError)
+    }
 }

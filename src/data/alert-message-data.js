@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import PropTypes from 'prop-types';
 import AlertMessageContext from '../contexts/alert-message-context';
 
@@ -13,8 +13,10 @@ const reducer = (data, action) => {
 
 const AlertMessageDataHolder = ({ children }) => {
     const [data, dispatchData] = useReducer(reducer, { show: false, text: '', type: '' });
+    const [languageSelected, setLanguageSelected] = useState(false);
+
     return (
-        <AlertMessageContext.Provider value={{ data, dispatchData }}>
+        <AlertMessageContext.Provider value={{ data, dispatchData, languageSelected, setLanguageSelected }}>
             {children}
         </AlertMessageContext.Provider>
     );

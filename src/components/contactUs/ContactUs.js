@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import { Grid, GridCell, GridRow } from "@rmwc/grid";
 import { Typography } from "@rmwc/typography";
@@ -9,7 +10,7 @@ import map from "../../res/images/maps.PNG"
 import styles from "./contactus.module.css"
 
 const ContactUs = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <div className={styles.contactus_container}>
@@ -17,14 +18,17 @@ const ContactUs = () => {
                 {t("contact-us")}
             </Typography>
             <Elevation z={"10"}>
-                <Card>
+                <Card style={{ maxWidth: '850px' }}>
                     <Grid style={{ margin: "0px" }}>
                         <GridRow>
                             <GridCell desktop={12} tablet={12} phone={12} className={styles.map_container}>
-                                <img src={map} className={styles.map_img} />
+                                <img src={map} className={styles.map_img} alt={"Mapa"} />
                             </GridCell>
-                            <GridCell desktop={8} tablet={12} phone={12}>
-                                <GridRow>
+                        </GridRow>
+                        <br />
+                        <GridRow style={{ margin: "30px" }}>
+                            <GridCell desktop={9} tablet={12} phone={12}>
+                                <GridRow style={{ color: '#2EBEC6' }}>
                                     <GridCell desktop={3} tablet={12} phone={12}>
                                         <MDIcon icon={"map-marker-radius"} />&nbsp;Dirección
                                     </GridCell>
@@ -33,7 +37,7 @@ const ContactUs = () => {
                                     </GridCell>
                                 </GridRow>
                                 <br />
-                                <GridRow>
+                                <GridRow style={{ color: '#2EBEC6' }}>
                                     <GridCell desktop={3} tablet={12} phone={12}>
                                         <MDIcon icon={"phone"} />&nbsp;Teléfono
                                     </GridCell>
@@ -42,7 +46,7 @@ const ContactUs = () => {
                                     </GridCell>
                                 </GridRow>
                                 <br />
-                                <GridRow>
+                                <GridRow style={{ color: '#2EBEC6' }} >
                                     <GridCell desktop={3} tablet={12} phone={12}>
                                         <MDIcon icon={"gmail"} />&nbsp;Correo
                                     </GridCell>
@@ -51,12 +55,12 @@ const ContactUs = () => {
                                     </GridCell>
                                 </GridRow>
                             </GridCell>
-                            <GridCell desktop={4} tablet={12} phone={12}>
+                            <GridCell desktop={3} tablet={12} phone={12}>
                                 <GridRow>
                                     <GridCell desktop={12} tablet={12} phone={12}>
                                         <a href={"https://www.facebook.com/VillaTatianaViota/"} target={"_blank"}
                                             className={styles.socialmedia_link}>
-                                            <MDIcon icon={"facebook"} />&nbsp;Facebook
+                                            <MDIcon icon={"facebook"} theme={['onSecondary']} />&nbsp;Facebook
                                         </a>
                                     </GridCell>
                                 </GridRow>

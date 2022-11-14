@@ -22,9 +22,7 @@ export default class RentalApi {
     }
 
     static getRentItem(data) {
-        return api.get("renting/listRenting", {
-            name: data.name,
-        })
+        return api.get(`renting/listRenting?name=${data.name}`)
             .then(getResponseData)
             .catch(escalateError)
     }
@@ -53,10 +51,13 @@ export default class RentalApi {
     }
 
     static deleteItem(data) {
-        console.log('api ', data);
-        return api.delete("item/deleteItem", {
-            name: data.name,
-        })
+        return api.delete("item/deleteItem", { data })
+            .then(getResponseData)
+            .catch(escalateError)
+    }
+
+    static deleteRentItem(id) {
+        return api.delete(`renting/deleteRenting?id=${id}`)
             .then(getResponseData)
             .catch(escalateError)
     }

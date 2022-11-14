@@ -5,8 +5,10 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import ServicesApi from '../../../api/ServicesApi'
 import AlertMessageContext from '../../../contexts/alert-message-context'
+import { useTranslation } from "react-i18next";
 
 const FSBFullCalendar = (props) => {
+    const { t } = useTranslation();
     const [loaded, setLoaded] = useState(false);
     const [eventsAdmin, setEventsAdmin] = useState([]);
     const [eventsUser, setEventsUser] = useState([]);
@@ -15,19 +17,20 @@ const FSBFullCalendar = (props) => {
     useEffect(() => {
         ServicesApi.getAllDates()
             .then((res) => {
+                // eslint-disable-next-line
                 res.reservation.map((it, i) => {
                     setEventsAdmin((oldArray) => [...oldArray, {
-                        id: i,
+                        id: it._id,
                         title: it.service,
                         start: it.date,
-                        resourceId: i,
+                        resourceId: it._id,
                         editable: true,
                     }])
                     setEventsUser((oldArray) => [...oldArray, {
-                        id: i,
+                        id: it._id,
                         title: it.service,
                         start: it.date,
-                        resourceId: i,
+                        resourceId: it._id,
                         editable: true,
                         groupId: "zzTop",
                         backgroundColor: "#ff0000",
@@ -36,7 +39,7 @@ const FSBFullCalendar = (props) => {
                 })
                 setLoaded(true)
             })
-            .catch((err) => dispatchNotification({ text: err, type: 'error' }))
+            .catch((err) => dispatchNotification({ text: t("errorGetDates"), type: 'error' }))
         // eslint-disable-next-line
     }, [])
 

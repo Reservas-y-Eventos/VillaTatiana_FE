@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@rmwc/dialog";
 import { Grid, GridCell, GridRow } from "@rmwc/grid";
 import { TextField } from "@rmwc/textfield";
@@ -11,7 +11,7 @@ import RentalApi from "../../api/RentalApi";
 import styles from "./newRental.module.css"
 
 const NewRental = (props) => {
-    const { open, data } = props
+    const { data } = props
     const { t } = useTranslation();
     const { dispatchData: dispatchNotification } = useContext(AlertMessageContext);
     const { atrr, meth } = useContext(RentalContext)
@@ -27,16 +27,12 @@ const NewRental = (props) => {
             amount: quantity,
         }
         RentalApi.rentItem(itemData)
-            .then((res) => {
+            .then(() => {
                 setOpenConfirmation(false)
                 setOpenAddRental(false)
-                dispatchNotification({ text: "Successful rent", type: 'success' })
+                dispatchNotification({ text: t("successRentItem"), type: 'success' })
             })
-            .catch((err) => dispatchNotification({ text: err, type: 'error' }))
-    }
-
-    const deleteItem = () => {
-
+            .catch(() => dispatchNotification({ text: t("errorRentItem"), type: 'error' }))
     }
 
     return (
@@ -133,13 +129,6 @@ const NewRental = (props) => {
                                             <Button label={t("cancel")} danger raised className={"button-full"}
                                                 onClick={() => setOpenConfirmation(false)} />
                                         </GridCell>
-                                        {localStorage.getItem('rol') === 'ADMIN'
-                                            ? <GridCell desktop={6}>
-                                                <Button label={t("delete")} raised className={"button-full"}
-                                                    danger onClick={() => deleteItem()} />
-                                            </GridCell>
-                                            : <></>
-                                        }
                                     </GridRow>
                                 </GridCell>
                             </GridRow>

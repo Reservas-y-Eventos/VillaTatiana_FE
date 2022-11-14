@@ -38,9 +38,9 @@ const EditItem = (props) => {
         RentalApi.updateItem(data)
             .then(() => {
                 setOpenEditItem(false)
-                dispatchNotification({ text: "Successful update", type: 'success' })
+                dispatchNotification({ text: t("successUpdateItem"), type: 'success' })
             })
-            .catch((err) => dispatchNotification({ text: err, type: 'error' }))
+            .catch((err) => dispatchNotification({ text: t("errorUpdateItem"), type: 'error' }))
     }
 
     return (

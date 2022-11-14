@@ -46,5 +46,22 @@
     "add": "Agregar",
     "addItem": "Nuevo Item",
     "viewRents": "Ver Alquileres",
-    "update": "Actualizar"
+    "update": "Actualizar",
+    "errorGetDates": "Error, no se pueden obtener las reservaciones",
+    "errorSendBooking": "Error, la fecha seleccionada no esta disponible",
+    "errorGetSite": "Error, no se pueden obtener los sitios",
+    "errorGetServices": "Error, no se pueden obtener los servicios",
+    "errorDeletItem": "Error, no se pueden obtener el item",
+    "errorGetItem": "Error, no se pueden obtener los item",
+    "errorGetRentItem": "Error, no se pueden obtener los items alquilados",
+    "errorRentItem": "Error, no se pueden alquilar el item",
+    "errorAddItem": "Error, no se puede crear un nuevo item",
+    "errorUpdateItem": "Error, no se puede actualizar el item",
+    "successUpdateItem": "Actualizacion exitosa",
+    "successRentItem": "Alquiler exitoso",
+    "errorDeleteRentItem": "Error, no se puede eliminar el alquiler",
+    "successDeleteRentItem": "Alquiler eliminada exitosamente",
+    "successAddItem": "Item agregado exitosamente",
+    "successDeleteItem": "Item eliminado exitosamente",
+    "confirmDetail": "Detalle Reserva"
 }

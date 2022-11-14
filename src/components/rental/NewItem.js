@@ -15,17 +15,17 @@ const NewItem = () => {
     const { openNewItem } = atrr
     const { setOpenNewItem } = meth
     const [name, setName] = useState('')
-    const [time, setTime] = useState(0)
-    const [price, setPrice] = useState(0)
+    const [time, setTime] = useState()
+    const [price, setPrice] = useState()
     const [type, setType] = useState('KITCHENWARE')
-    const [stock, setStock] = useState(0)
+    const [stock, setStock] = useState()
     const [url, setUrl] = useState('')
 
     const cleanFields = () => {
         setName('')
-        setTime('')
-        setPrice('')
-        setStock('')
+        setTime()
+        setPrice()
+        setStock()
         setUrl('')
     }
 
@@ -35,9 +35,9 @@ const NewItem = () => {
             .then(() => {
                 setOpenNewItem(false)
                 cleanFields()
-                dispatchNotification({ text: 'Successful item addition', type: 'success' })
+                dispatchNotification({ text: t("successAddItem"), type: 'success' })
             })
-            .catch((err) => dispatchNotification({ text: err, type: 'error' }))
+            .catch((err) => dispatchNotification({ text: t("errorAddItem"), type: 'error' }))
     }
 
     return (
@@ -52,11 +52,11 @@ const NewItem = () => {
                             </GridCell>
                             <GridCell desktop={12} tablet={12} phone={12}>
                                 <TextField icon={"timer"} outlined label={t("time")} type={"number"}
-                                    value={time} onChange={(e) => setTime(e.target.value)} />
+                                    min={0} value={time} onChange={(e) => setTime(e.target.value)} />
                             </GridCell>
                             <GridCell desktop={12} tablet={12} phone={12}>
                                 <TextField icon={"currency-usd"} outlined label={t("price")} type={"number"}
-                                    value={price} onChange={(e) => setPrice(e.target.value)} />
+                                    min={0} value={price} onChange={(e) => setPrice(e.target.value)} />
                             </GridCell>
                             <GridCell desktop={12} tablet={12} phone={12}>
                                 <TextField icon={"sticker"} outlined label={t("brand")} value={type}
@@ -64,7 +64,7 @@ const NewItem = () => {
                             </GridCell>
                             <GridCell desktop={12} tablet={12} phone={12}>
                                 <TextField icon={"inbox"} outlined label={"Stock"} type={"number"}
-                                    value={stock} onChange={(e) => setStock(e.target.value)} />
+                                    min={0} value={stock} onChange={(e) => setStock(e.target.value)} />
                             </GridCell>
                             <GridCell desktop={12} tablet={12} phone={12}>
                                 <TextField icon={"web"} outlined label={"Url"}

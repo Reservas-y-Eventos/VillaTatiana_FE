@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiBack = "https://appvillatatiana.herokuapp.com/api/"
+const apiBack = "http://localhost:5000/api/"
 
 let header = {
     "Content-Type": "application/json",
@@ -15,5 +15,5 @@ export let api = axios.create({
 export const getResponseData = (resp) => resp.data
 
 export const escalateError = (err) => {
-    console.log(err);
+    console.error(err);
 }

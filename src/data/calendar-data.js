@@ -4,9 +4,10 @@ import CalendarContext from '../contexts/calendar-context';
 
 const CalendarDataHolder = ({ children }) => {
     const [openAddEvent, setOpenAddEvent] = useState(false)
+    const [openDetailEvent, setOpenDetailEvent] = useState(false)
 
-    const atrr = { openAddEvent }
-    const meth = { setOpenAddEvent }
+    const atrr = { openAddEvent, openDetailEvent }
+    const meth = { setOpenAddEvent, setOpenDetailEvent }
     return (
         <CalendarContext.Provider value={{ atrr, meth }}>
             {children}

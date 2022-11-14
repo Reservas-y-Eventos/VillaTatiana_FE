@@ -19,6 +19,7 @@
     "@fullcalendar/react": "^5.11.1",
     "@fullcalendar/timegrid": "^5.11.0",
     "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/pickers": "^3.3.10",
     "@mdi/font": "^6.8.96",
@@ -63,6 +64,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-i18next": "^11.7.0",
+    "react-material-ui-carousel": "^2.3.11",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "web-vitals": "^2.1.4"
