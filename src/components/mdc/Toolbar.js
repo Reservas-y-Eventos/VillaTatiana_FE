@@ -11,6 +11,7 @@ import { Menu, MenuItem, MenuSurfaceAnchor } from "@rmwc/menu";
 import { useTranslation } from "react-i18next";
 import DrawerContext from "./drawer/DrawerContext";
 import MDIcon from "./MDIcon";
+import AlertMessageContext from "../../contexts/alert-message-context";
 import logo from "../../res/images/logo192.png"
 import usa from "../../res/images/usa.png"
 import spain from "../../res/images/spain.png"
@@ -30,6 +31,7 @@ const ToolbarTheme = {
 const Toolbar = ({ useCustomTheme = true }) => {
     const { t, i18n } = useTranslation();
     const { setDrawerOpen } = useContext(DrawerContext);
+    const { languageSelected, setLanguageSelected } = useContext(AlertMessageContext)
     const [show, setShow] = useState(false);
     const [open, setOpen] = useState(false)
 
@@ -92,7 +94,11 @@ const Toolbar = ({ useCustomTheme = true }) => {
                     </TopAppBarSection>
                     <TopAppBarSection alignEnd>
                         <div className={styles.end_container}>
-                            <Button onClick={() => changeLanguage("es")}>
+                            <Button style={{ background: !languageSelected ? "rgba(57,215,254, 0.15)" : "" }}
+                                onClick={() => {
+                                    changeLanguage("es");
+                                    setLanguageSelected(false)
+                                }}>
                                 <div className={styles.esp_container}>
                                     <img src={usa} alt={"ENG"} />&nbsp;&nbsp;ESP
                                 </div>
@@ -100,7 +106,11 @@ const Toolbar = ({ useCustomTheme = true }) => {
                             <Typography use="subtitle2" className={styles.banner}>
                                 |
                             </Typography>
-                            <Button onClick={() => changeLanguage("en")} style={{ 'marginRight': '10px' }} >
+                            <Button style={{ marginRight: '10px', background: languageSelected ? "rgba(57,215,254, 0.15)" : "" }}
+                                onClick={() => {
+                                    changeLanguage("en");
+                                    setLanguageSelected(true)
+                                }}>
                                 <div className={styles.esp_container}>
                                     ENG&nbsp;<img src={spain} alt={"SPA"} />
                                 </div>

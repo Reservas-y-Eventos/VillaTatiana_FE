@@ -24,26 +24,32 @@ const Rental = () => {
     const { t } = useTranslation();
     const { dispatchData: dispatchNotification } = useContext(AlertMessageContext);
     const { atrr, meth } = useContext(RentalContext)
-    const { openAddRental, openNewItem, openEditItem } = atrr
+    const { openAddRental, openNewItem, openEditItem, openListItem } = atrr
     const { setOpenAddRental, setOpenNewItem, setOpenListItem, setOpenEditItem } = meth
     const [itemsList, setItemsList] = useState([])
     const [itemSelected, setItemSelected] = useState([])
+    const [deleteDone, setDeleteDone] = useState(false)
 
     useEffect(() => {
         RentalApi.getItems()
             .then((res) => {
                 setItemsList(res.items)
             })
-            .catch((err) => console.log(err))
+            .catch(() => dispatchNotification({ text: t("errorGetItem"), type: 'error' }))
         // eslint-disable-next-line
-    }, [openNewItem, openAddRental, openEditItem])
+    }, [openNewItem, openAddRental, openEditItem, openListItem, deleteDone])
 
     const deleteItem = (name) => {
-        console.log(name);
         const data = { name: name.toLowerCase() }
         RentalApi.deleteItem(data)
-            .then(() => dispatchNotification({ text: 'Successful item addition', type: 'success' }))
-            .catch((err) => dispatchNotification({ text: err, type: 'error' }))
+            .then(() => {
+                setDeleteDone(true)
+                dispatchNotification({ text: t("successDeleteItem"), type: 'success' })
+            })
+            .catch(() => {
+                setDeleteDone(false)
+                dispatchNotification({ text: t("errorDeletItem"), type: 'error' })
+            })
     }
 
     return (
@@ -56,19 +62,22 @@ const Rental = () => {
                     <Card style={{ maxWidth: '930px' }}>
                         <Grid style={{ margin: "0px" }}>
                             <GridCell desktop={12} tablet={12} phone={12}>
-                                <GridRow>
-                                    <GridCell desktop={6} tablet={12} phone={12} />
-                                    <GridCell desktop={3} tablet={12} phone={12}>
-                                        <Button label={t("viewRents")} raised className={"button-full"} icon={"file-search"}
-                                            onClick={() => setOpenListItem(true)}
-                                            style={localStorage.getItem('rol') === 'USER' ? { display: 'none' } : { display: '' }} />
-                                    </GridCell>
-                                    <GridCell desktop={3} tablet={12} phone={12}>
-                                        <Button label={t("addItem")} raised className={"button-full"} icon={"plus"}
-                                            onClick={() => setOpenNewItem(true)}
-                                            style={localStorage.getItem('rol') === 'USER' ? { display: 'none' } : { display: '' }} />
-                                    </GridCell>
-                                </GridRow>
+                                {localStorage.getItem('token')
+                                    ? <GridRow>
+                                        <GridCell desktop={6} tablet={12} phone={12} />
+                                        <GridCell desktop={3} tablet={12} phone={12}>
+                                            <Button label={t("viewRents")} raised className={"button-full"} icon={"file-search"}
+                                                onClick={() => setOpenListItem(true)}
+                                                style={localStorage.getItem('rol') === 'USER' ? { display: 'none' } : { display: '' }} />
+                                        </GridCell>
+                                        <GridCell desktop={3} tablet={12} phone={12}>
+                                            <Button label={t("addItem")} raised className={"button-full"} icon={"plus"}
+                                                onClick={() => setOpenNewItem(true)}
+                                                style={localStorage.getItem('rol') === 'USER' ? { display: 'none' } : { display: '' }} />
+                                        </GridCell>
+                                    </GridRow>
+                                    : <></>
+                                }
                                 <GridList tileAspect={'1x1'}>
                                     {(Utils.orderArray(itemsList, 'name', 1) || []).map((it, i) => (
                                         <div className={styles.items_container}>
@@ -112,6 +121,23 @@ const Rental = () => {
                                                                         right: '0',
                                                                         position: 'absolute',
                                                                         fontWeight: 'bolder'
+                                                                    }}
+                                                                >
+                                                                    {`$: ${it.price}`}
+                                                                </Typography>
+                                                                <Typography
+                                                                    use="subtitle2"
+                                                                    tag="div"
+                                                                    theme="textPrimaryOnDark"
+                                                                    style={{
+                                                                        padding: '0.5rem 0.5rem',
+                                                                        backgroundImage:
+                                                                            'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%)',
+                                                                        top: '0',
+                                                                        left: '0',
+                                                                        position: 'absolute',
+                                                                        fontWeight: 'bolder',
+                                                                        display: localStorage.getItem('rol') === 'USER' ? 'none' : ''
                                                                     }}
                                                                 >
                                                                     {`Stock: ${it.stock}`}

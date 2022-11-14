@@ -8,6 +8,7 @@ import Property from "../components/booking/Booking";
 import Rental from "../components/rental/Rental";
 import ContactUs from "../components/contactUs/ContactUs";
 import CalendarDataHolder from "../data/calendar-data";
+import BookingDataHolder from "../data/booking-data";
 import RentalDataHolder from "../data/rental-data";
 
 const RoutesAdmin = () => {
@@ -29,7 +30,9 @@ const RoutesAdmin = () => {
                     </CalendarDataHolder>
                 </Route>
                 <Route exact path={"/booking"}>
-                    <Property />
+                    <BookingDataHolder>
+                        <Property />
+                    </BookingDataHolder>
                 </Route>
                 <Route exact path={"/rental"}>
                     <RentalDataHolder>

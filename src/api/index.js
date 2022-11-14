@@ -15,5 +15,5 @@ export let api = axios.create({
 export const getResponseData = (resp) => resp.data
 
 export const escalateError = (err) => {
-    console.log(err);
+    console.error(err);
 }
