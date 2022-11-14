@@ -33,11 +33,13 @@ export default class ServicesApi {
     }
 
     static getReservationById(reservationId) {
-        return api.get("reservation", {
-            params: {
-                reservationId: reservationId
-            }
-        })
+        return api.get(`form/reservation/?reservationId=${reservationId}`)
+            .then(getResponseData)
+            .catch(escalateError)
+    }
+
+    static deleteReservationById(reservationId) {
+        return api.delete(`form/delete/?reservationId=${reservationId}`)
             .then(getResponseData)
             .catch(escalateError)
     }

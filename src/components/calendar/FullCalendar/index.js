@@ -4,14 +4,17 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import ServicesApi from '../../../api/ServicesApi'
+import CalendarContext from '../../../contexts/calendar-context'
 import AlertMessageContext from '../../../contexts/alert-message-context'
 import { useTranslation } from "react-i18next";
 
 const FSBFullCalendar = (props) => {
     const { t } = useTranslation();
-    const [loaded, setLoaded] = useState(false);
     const [eventsAdmin, setEventsAdmin] = useState([]);
     const [eventsUser, setEventsUser] = useState([]);
+    const { atrr, meth } = useContext(CalendarContext)
+    const { loaded, openDetailEvent } = atrr
+    const { setLoaded } = meth
     const { dispatchData: dispatchNotification } = useContext(AlertMessageContext);
 
     useEffect(() => {
@@ -39,9 +42,9 @@ const FSBFullCalendar = (props) => {
                 })
                 setLoaded(true)
             })
-            .catch((err) => dispatchNotification({ text: t("errorGetDates"), type: 'error' }))
+            .catch(() => dispatchNotification({ text: t("errorGetDates"), type: 'error' }))
         // eslint-disable-next-line
-    }, [])
+    }, [openDetailEvent])
 
     return (
         <>
