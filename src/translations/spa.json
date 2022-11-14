@@ -63,5 +63,6 @@
     "successDeleteRentItem": "Alquiler eliminada exitosamente",
     "successAddItem": "Item agregado exitosamente",
     "successDeleteItem": "Item eliminado exitosamente",
-    "confirmDetail": "Detalle Reserva"
+    "confirmDetail": "Detalle Reserva",
+    "homeDescription": "Villa Tatiana es un centro vacacional perfecto para escapar de la rutina y desconectarse del estrés de la ciudad."
 }

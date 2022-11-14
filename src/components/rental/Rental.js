@@ -125,23 +125,25 @@ const Rental = () => {
                                                                 >
                                                                     {`$: ${it.price}`}
                                                                 </Typography>
-                                                                <Typography
-                                                                    use="subtitle2"
-                                                                    tag="div"
-                                                                    theme="textPrimaryOnDark"
-                                                                    style={{
-                                                                        padding: '0.5rem 0.5rem',
-                                                                        backgroundImage:
-                                                                            'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%)',
-                                                                        top: '0',
-                                                                        left: '0',
-                                                                        position: 'absolute',
-                                                                        fontWeight: 'bolder',
-                                                                        display: localStorage.getItem('rol') === 'USER' ? 'none' : ''
-                                                                    }}
-                                                                >
-                                                                    {`Stock: ${it.stock}`}
-                                                                </Typography>
+                                                                {localStorage.getItem('token')
+                                                                    ? <Typography
+                                                                        use="subtitle2"
+                                                                        tag="div"
+                                                                        theme="textPrimaryOnDark"
+                                                                        style={{
+                                                                            padding: '0.5rem 0.5rem',
+                                                                            backgroundImage:
+                                                                                'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%)',
+                                                                            top: '0',
+                                                                            left: '0',
+                                                                            position: 'absolute',
+                                                                            fontWeight: 'bolder',
+                                                                            display: localStorage.getItem('rol') === 'USER' ? 'none' : ''
+                                                                        }}
+                                                                    >
+                                                                        {`Stock: ${it.stock}`}
+                                                                    </Typography>
+                                                                    : <></>}
                                                             </CardMediaContent>
                                                         </CardMedia>
                                                     </CardPrimaryAction>
@@ -173,8 +175,8 @@ const Rental = () => {
                                                                 </CardActionIcon>
                                                             </CardActionIcons>
                                                         </CardActions>
-                                                        : <>
-                                                        </>}
+                                                        : <></>
+                                                    }
                                                 </Card>
                                             </GridTile>
                                         </div>
