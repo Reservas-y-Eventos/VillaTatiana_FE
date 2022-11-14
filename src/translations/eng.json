@@ -64,5 +64,8 @@
     "successAddItem": "Successful add item",
     "successDeleteItem": "Successful delete item",
     "confirmDetail": "Booking Detail",
-    "homeDescription": "Villa Tatiana it is a perfect resort to escape the routine and disconnect from the stress of the city."
+    "homeDescription": "Villa Tatiana it is a perfect resort to escape the routine and disconnect from the stress of the city.",
+    "close": "Close",
+    "errorDeleteReservation": "Error, unable to delete booking",
+    "successDeleteReservation": "Booking deleted successful"
 }
